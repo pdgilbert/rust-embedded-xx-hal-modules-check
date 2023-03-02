@@ -16,6 +16,7 @@ env:
 jobs:
 
   levels:
+    name: >
     runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
