@@ -1,0 +1,108 @@
+# Check with
+# yamllint CI.yaml | grep syntax
+
+on:
+  push:
+    branches: [ main, dev]
+  pull_request:
+  schedule:
+    - cron: 0 1 * * 1
+
+name: eg/CI build
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+
+  levels:
+    name: eg
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+
+        eg:  [level-0, level-1,  level-2,  level-3,            
+             ]
+
+        brd: [none-stm32f030,   bluepill,            discovery-stm32f303,  blackpill-stm32f401, 
+              none-stm32f769,   none-stm32g081,      none-stm32g473,       none-stm32h742, 
+              none-stm32l0x2,   discovery-stm32l100, none-stm32l422,
+              ]
+
+        #NB sections in brd above must be one-to-one with brd: below or matrix is messed up
+        
+        #stg: [e-h-0.2.4, e-h-1a]
+        stg: [e-h-0.2.4]
+        include:
+           - brd: "none-stm32f030"
+             mcu:  stm32f030xc
+             hal: "stm32f0xx"
+             trg: "thumbv6m-none-eabi"   
+           - brd: "bluepill"
+             mcu:  stm32f103
+             hal: "stm32f1xx"
+             trg: "thumbv7m-none-eabi"
+           - brd: "discovery-stm32f303"
+             mcu:  stm32f303xc
+             hal: "stm32f3xx"
+             trg: "thumbv7em-none-eabihf"
+           - brd: "blackpill-stm32f401"
+             mcu:  stm32f401
+             hal: "stm32f4xx"
+             trg: "thumbv7em-none-eabihf"
+           - brd: "none-stm32f769"
+             mcu:  stm32f769
+             hal: "stm32f7xx"
+             trg: "thumbv7em-none-eabihf"
+           - brd: "none-stm32g081"
+             mcu:  stm32g081
+             hal: "stm32g0xx"
+             trg: "thumbv6m-none-eabi"
+           - brd: "none-stm32g473"
+             mcu:  stm32g473
+             hal: "stm32g4xx"
+             trg: "thumbv7em-none-eabihf"
+           - brd: "none-stm32h742"
+             mcu:  stm32h742             
+             hal: "stm32h7xx"
+             trg: "thumbv7em-none-eabihf"
+           - brd: "none-stm32l0x2"
+             mcu:  stm32l0x2kztx
+             hal: "stm32l0xx"
+             trg: "thumbv6m-none-eabi"
+           - brd: "discovery-stm32l100"
+             mcu:  stm32l100
+             hal: "stm32l1xx"
+             trg: "thumbv7m-none-eabi"
+           - brd: "none-stm32l422"
+             mcu:  stm32l422
+             hal: "stm32l4xx"
+             trg: "thumbv7em-none-eabi"
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          #profile: minimal
+          toolchain: stable
+          target: ${{ matrix.trg }}
+    
+      - name: Configure caching 
+        uses: actions/cache@v3
+        with:
+          key: ${{ matrix.brd }}
+          path: |
+            ${{ env.HOME }}/.cargo
+            target
+
+      - name: tree
+        run: cargo tree 
+
+      - name: Build
+        run: cargo build   --no-default-features --release --target ${{ matrix.trg }} --features ${{ matrix.hal }},${{ matrix.mcu }}
+
+      - name: Build example 
+        run: cargo build   --release --target ${{ matrix.trg }} --features ${{ matrix.hal }},${{ matrix.mcu }} --example ${{ matrix.eg }}
+
+
