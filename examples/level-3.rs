@@ -85,7 +85,7 @@ fn main() -> ! {
     let _cp = CorePeripherals::take().unwrap();
     let dp = Peripherals::take().unwrap();
 
-    let _rcc: rcc::Rcc = dp.RCC.constrain();
+    let rcc: rcc::Rcc = dp.RCC.constrain();
 
     let _gpioc = dp.GPIOC.split();
 

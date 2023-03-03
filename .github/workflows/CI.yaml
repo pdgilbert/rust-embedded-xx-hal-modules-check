@@ -3,7 +3,7 @@
 
 on:
   push:
-    branches: [ main, dev]
+    branches: [ main, dev, CIdebug]
   pull_request:
   schedule:
     - cron: 0 1 * * 1
