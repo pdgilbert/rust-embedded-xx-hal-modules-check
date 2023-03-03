@@ -31,6 +31,7 @@ The examples can be built manually by setting one of these lines:
   export HAL=stm32l1xx MCU=stm32l151   TARGET=thumbv7m-none-eabi  
   export HAL=stm32l4xx MCU=stm32l422   TARGET=thumbv7em-none-eabi 
 
+
 ```
 then to build
 ```
