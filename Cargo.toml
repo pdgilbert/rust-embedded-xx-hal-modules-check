@@ -36,9 +36,9 @@ dwt-systick-monotonic = {git = "https://github.com/rtic-rs/dwt-systick-monotonic
 fugit = { version = "0.3.3", optional = true }
 #fugit = { git = "https://github.com/korken89/fugit", optional = true }
 
-embedded-hal = {version = "^0.2.4" }
+#embedded-hal = {version = "^0.2.4" }
 
-#embedded-hal  1.0.0-alpha
+embedded-hal  = {version =  "1.0.0-alpha.8"} 
 #e-h-1a = { version = "1.0.0-alpha.7,<1.0.0-alpha.8", package = "embedded-hal" }  
 
 #embedded-graphics = ">=0.7"
