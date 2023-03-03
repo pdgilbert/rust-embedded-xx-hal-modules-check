@@ -51,8 +51,8 @@ use stm32l4xx_hal as hal;
 use hal::{
     pac::{CorePeripherals, Peripherals},
     rcc, 
-    //timer::SysDelay, // location for stm32f1xx, stm32f4xx, stm32f7xx,
-    delay::SysDelay,
+    timer::SysDelay, // location for stm32f1xx, stm32f4xx, stm32f7xx,
+    //delay::SysDelay,
 };
 
 pub type RccType:  = rcc::Rcc;
