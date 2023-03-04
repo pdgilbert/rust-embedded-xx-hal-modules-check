@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
 
-        eg:  [level-0, level-1,  level-2,  level-3,            
+        eg:  [lv-0, lv-1,  lv-2,  lv-3,            
              ]
 
         brd: [none-stm32f030,   bluepill,            discovery-stm32f303,  blackpill-stm32f401, 
