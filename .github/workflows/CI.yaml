@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
 
-        eg:  [lv-0, lv-1,  lv-2,  lv-3,            
+        eg:  [lv-0, lv-1,  lv-1b,  lv-2,  lv-3,            
              ]
 
         hal: [stm32f0xx,   stm32f1xx,  stm32f3xx,  stm32f4xx, 

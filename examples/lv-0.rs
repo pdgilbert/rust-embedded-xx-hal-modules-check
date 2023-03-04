@@ -52,7 +52,6 @@ use hal::{
 };
 
 pub type RccType:  = rcc::Rcc;
-pub type SysDelayType = SysDelay;
 
 
 #[entry]
