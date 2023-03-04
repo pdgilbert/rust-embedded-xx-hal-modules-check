@@ -16,7 +16,7 @@ env:
 jobs:
 
   levels:
-    name: >
+    name: j
     runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
@@ -25,59 +25,48 @@ jobs:
         eg:  [lv-0, lv-1,  lv-2,  lv-3,            
              ]
 
-        brd: [stm32f030,   stm32f103,   stm32f303,  stm32f401, 
-              stm32f769,   stm32g081,  stm32g473,  stm32h742, 
-              stm32l0x2,   stm32l100,  stm32l422,
+        hal: [stm32f0xx,   stm32f1xx,  stm32f3xx,  stm32f4xx, 
+              stm32f7xx,   stm32g0xx,  stm32g4xx,  stm32h7xx, 
+              stm32l0xx,   stm32l1xx,  stm32l4xx,
               ]
 
-        #NB sections in brd above must be one-to-one with brd: below or matrix is messed up
+        #NB sections in hal above must be one-to-one with hal: below or matrix is messed up
         
         #stg: [e-h-0.2.4, e-h-1a]
         stg: [e-h-0.2.4]
         include:
-           - brd: "stm32f030"
+           - hal: "stm32f0xx"
              mcu:  stm32f030xc
-             hal: "stm32f0xx"
              trg: "thumbv6m-none-eabi"   
-           - brd: "stm32f103"
+           - hal: "stm32f1xx"
              mcu:  stm32f103
-             hal: "stm32f1xx"
-             trg: "thumbv7m-none-eabi"
-           - brd: "stm32f303"
+             trg: "thumbv7m-none-eabi"   
+           - hal: "stm32f3xx"
              mcu:  stm32f303xc
-             hal: "stm32f3xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "stm32f401"
+           - hal: "stm32f4xx"
              mcu:  stm32f401
-             hal: "stm32f4xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "stm32f769"
+           - hal: "stm32f7xx"
              mcu:  stm32f769
-             hal: "stm32f7xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "stm32g081"
+           - hal: "stm32g0xx"
              mcu:  stm32g081
-             hal: "stm32g0xx"
              trg: "thumbv6m-none-eabi"
-           - brd: "stm32g473"
+           - hal: "stm32g4xx"
              mcu:  stm32g473
-             hal: "stm32g4xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "stm32h742"
+           - hal: "stm32h7xx"
              mcu:  stm32h742             
-             hal: "stm32h7xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "stm32l0x2"
+           - hal: "stm32l0xx"
              mcu:  stm32l0x2kztx
-             hal: "stm32l0xx"
              trg: "thumbv6m-none-eabi"
-           - brd: "stm32l100"
+           - hal: "stm32l1xx"
              mcu:  stm32l100
-             hal: "stm32l1xx"
              trg: "thumbv7m-none-eabi"
-           - brd: "stm32l422"
+           - hal: "stm32l4xx"
              mcu:  stm32l422
-             hal: "stm32l4xx"
              trg: "thumbv7em-none-eabi"
 
     steps:
