@@ -25,9 +25,9 @@ jobs:
         eg:  [lv-0, lv-1,  lv-2,  lv-3,            
              ]
 
-        brd: [none-stm32f030,   bluepill,            discovery-stm32f303,  blackpill-stm32f401, 
-              none-stm32f769,   none-stm32g081,      none-stm32g473,       none-stm32h742, 
-              none-stm32l0x2,   discovery-stm32l100, none-stm32l422,
+        brd: [stm32f030,   bluepill,   stm32f303,  stm32f401, 
+              stm32f769,   stm32g081,  stm32g473,  stm32h742, 
+              stm32l0x2,   stm32l100,  stm32l422,
               ]
 
         #NB sections in brd above must be one-to-one with brd: below or matrix is messed up
@@ -35,7 +35,7 @@ jobs:
         #stg: [e-h-0.2.4, e-h-1a]
         stg: [e-h-0.2.4]
         include:
-           - brd: "none-stm32f030"
+           - brd: "stm32f030"
              mcu:  stm32f030xc
              hal: "stm32f0xx"
              trg: "thumbv6m-none-eabi"   
@@ -43,39 +43,39 @@ jobs:
              mcu:  stm32f103
              hal: "stm32f1xx"
              trg: "thumbv7m-none-eabi"
-           - brd: "discovery-stm32f303"
+           - brd: "stm32f303"
              mcu:  stm32f303xc
              hal: "stm32f3xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "blackpill-stm32f401"
+           - brd: "stm32f401"
              mcu:  stm32f401
              hal: "stm32f4xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "none-stm32f769"
+           - brd: "stm32f769"
              mcu:  stm32f769
              hal: "stm32f7xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "none-stm32g081"
+           - brd: "stm32g081"
              mcu:  stm32g081
              hal: "stm32g0xx"
              trg: "thumbv6m-none-eabi"
-           - brd: "none-stm32g473"
+           - brd: "stm32g473"
              mcu:  stm32g473
              hal: "stm32g4xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "none-stm32h742"
+           - brd: "stm32h742"
              mcu:  stm32h742             
              hal: "stm32h7xx"
              trg: "thumbv7em-none-eabihf"
-           - brd: "none-stm32l0x2"
+           - brd: "stm32l0x2"
              mcu:  stm32l0x2kztx
              hal: "stm32l0xx"
              trg: "thumbv6m-none-eabi"
-           - brd: "discovery-stm32l100"
+           - brd: "stm32l100"
              mcu:  stm32l100
              hal: "stm32l1xx"
              trg: "thumbv7m-none-eabi"
-           - brd: "none-stm32l422"
+           - brd: "stm32l422"
              mcu:  stm32l422
              hal: "stm32l4xx"
              trg: "thumbv7em-none-eabi"
