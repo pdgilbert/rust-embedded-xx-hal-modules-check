@@ -25,9 +25,9 @@ jobs:
         eg:  [lv-0, lv-1,  lv-2,  lv-3,            
              ]
 
-        brd: [stm32f030,   bluepill,       stm32f303,  stm32f401, 
-              stm32f769,   stm32g081,      stm32g473,  stm32h742, 
-              stm32l0x2,   stm32l100,      stm32l422,
+        brd: [stm32f030,   bluepill,            discovery-stm32f303,  blackpill-stm32f401, 
+              stm32f769,   stm32g081,      stm32g473,       stm32h742, 
+              stm32l0x2,   discovery-stm32l100, stm32l422,
               ]
 
         #NB sections in brd above must be one-to-one with brd: below or matrix is messed up
@@ -43,11 +43,11 @@ jobs:
              mcu:  stm32f103
              hal: "stm32f1xx"
              trg: "thumbv7m-eabi"
-           - brd: "stm32f303"
+           - brd: "discovery-stm32f303"
              mcu:  stm32f303xc
              hal: "stm32f3xx"
              trg: "thumbv7em-eabihf"
-           - brd: "stm32f401"
+           - brd: "blackpill-stm32f401"
              mcu:  stm32f401
              hal: "stm32f4xx"
              trg: "thumbv7em-eabihf"
@@ -71,7 +71,7 @@ jobs:
              mcu:  stm32l0x2kztx
              hal: "stm32l0xx"
              trg: "thumbv6m-eabi"
-           - brd: "stm32l100"
+           - brd: "discovery-stm32l100"
              mcu:  stm32l100
              hal: "stm32l1xx"
              trg: "thumbv7m-eabi"
