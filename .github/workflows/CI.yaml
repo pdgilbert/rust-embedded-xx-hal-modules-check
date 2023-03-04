@@ -16,7 +16,7 @@ env:
 jobs:
 
   levels:
-    name: eg
+    name: >
     runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
@@ -25,7 +25,7 @@ jobs:
         eg:  [lv-0, lv-1,  lv-2,  lv-3,            
              ]
 
-        brd: [stm32f030,   bluepill,   stm32f303,  stm32f401, 
+        brd: [stm32f030,   stm32f103,   stm32f303,  stm32f401, 
               stm32f769,   stm32g081,  stm32g473,  stm32h742, 
               stm32l0x2,   stm32l100,  stm32l422,
               ]
@@ -39,7 +39,7 @@ jobs:
              mcu:  stm32f030xc
              hal: "stm32f0xx"
              trg: "thumbv6m-none-eabi"   
-           - brd: "bluepill"
+           - brd: "stm32f103"
              mcu:  stm32f103
              hal: "stm32f1xx"
              trg: "thumbv7m-none-eabi"
