@@ -51,8 +51,7 @@ use stm32l4xx_hal as hal;
 use hal::{
     pac::{CorePeripherals, Peripherals},
     pac::{TIM2},
-    gpio::{Output, PushPull,
-           gpiob::PB6},
+    gpio::{Output, PushPull, gpiob::PB6},
     prelude::*,
     rcc, 
     delay::Delay,

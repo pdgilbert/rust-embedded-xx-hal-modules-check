@@ -52,7 +52,8 @@ use hal::{
     prelude::*,
     rcc, 
     delay::Delay,
-    timer::SysDelay, // location for stm32f1xx, stm32f4xx, stm32f7xx,
+    delay::SysDelay,
+    //timer::SysDelay, // location for stm32f1xx, stm32f4xx, stm32f7xx,
 };
 
 pub type RccType:  = rcc::Rcc;
