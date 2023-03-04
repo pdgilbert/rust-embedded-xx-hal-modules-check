@@ -8,7 +8,7 @@ on:
   schedule:
     - cron: 0 1 * * 1
 
-name: eg/CI build
+name: HAL checks
 
 env:
   CARGO_TERM_COLOR: always
@@ -16,7 +16,7 @@ env:
 jobs:
 
   levels:
-    name: eg
+    name: j
     runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
@@ -38,47 +38,47 @@ jobs:
            - brd: "stm32f030"
              mcu:  stm32f030xc
              hal: "stm32f0xx"
-             trg: "thumbv6m-eabi"   
+             trg: "thumbv6m-none-eabi"   
            - brd: "stm32l03"
              mcu:  stm32f103
              hal: "stm32f1xx"
-             trg: "thumbv7m-eabi"
+             trg: "thumbv7m-none-eabi"
            - brd: "stm32f303"
              mcu:  stm32f303xc
              hal: "stm32f3xx"
-             trg: "thumbv7em-eabihf"
+             trg: "thumbv7em-none-eabihf"
            - brd: "stm32f401"
              mcu:  stm32f401
              hal: "stm32f4xx"
-             trg: "thumbv7em-eabihf"
+             trg: "thumbv7em-none-eabihf"
            - brd: "stm32f769"
              mcu:  stm32f769
              hal: "stm32f7xx"
-             trg: "thumbv7em-eabihf"
+             trg: "thumbv7em-none-eabihf"
            - brd: "stm32g081"
              mcu:  stm32g081
              hal: "stm32g0xx"
-             trg: "thumbv6m-eabi"
+             trg: "thumbv6m-none-eabi"
            - brd: "stm32g473"
              mcu:  stm32g473
              hal: "stm32g4xx"
-             trg: "thumbv7em-eabihf"
+             trg: "thumbv7em-none-eabihf"
            - brd: "stm32h742"
              mcu:  stm32h742             
              hal: "stm32h7xx"
-             trg: "thumbv7em-eabihf"
+             trg: "thumbv7em-none-eabihf"
            - brd: "stm32l0x2"
              mcu:  stm32l0x2kztx
              hal: "stm32l0xx"
-             trg: "thumbv6m-eabi"
+             trg: "thumbv6m-none-eabi"
            - brd: "stm32l100"
              mcu:  stm32l100
              hal: "stm32l1xx"
-             trg: "thumbv7m-eabi"
+             trg: "thumbv7m-none-eabi"
            - brd: "stm32l422"
              mcu:  stm32l422
              hal: "stm32l4xx"
-             trg: "thumbv7em-eabi"
+             trg: "thumbv7em-none-eabi"
 
     steps:
       - uses: actions/checkout@v3
